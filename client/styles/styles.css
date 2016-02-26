@@ -1,0 +1,18 @@
+.container-fluid, .container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+ul.social-buttons li a {display:block;background-color:#222;height:40px;width:40px;border-radius:100%;font-size:20px;line-height:40px;color:#fff;outline:0;}
+ul.social-buttons li a .fa {color:#fff;}
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+.clipboard-row {
+  padding:15px;
+  margin-bottom:10px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
