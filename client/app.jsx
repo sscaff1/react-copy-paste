@@ -42,11 +42,11 @@ class App extends React.Component {
             {this.props.textCopies ? this.props.textCopies.map(copy =>
               (<CopyContainer key={copy._id}
                 copyInstance={copy}
-                colorChange={this.colorChange.bind(this)}
-                handleDelete={this.handleDelete.bind(this)} />)) : ""}
+                colorChange={this.colorChange}
+                handleDelete={this.handleDelete} />)) : ""}
             <div className="row">
               <div className="col-xs-12 text-center">
-                <AddAnother handleClick={this.handleClick.bind(this)} />
+                <AddAnother handleClick={this.handleClick} />
               </div>
             </div>
           </div>

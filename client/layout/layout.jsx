@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Header from './header.jsx';
 import {Footer} from './footer.jsx';
-import {composeWithTracker} from 'react-komposer';
 
 class Layout extends React.Component {
   handleSave(event) {

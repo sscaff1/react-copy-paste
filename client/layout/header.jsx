@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Blaze} from 'meteor/blaze';
 import {composeWithTracker} from 'react-komposer';
 
 function composer(props, onData) {
