@@ -1,12 +1,10 @@
 import {Meteor} from 'meteor/meteor';
-import {TextCopies} from '/lib/collections';
+import {TextCopies} from '/lib/collections.js';
 
-export default function() {
-  Meteor.publish('textCopies', () => {
-    if (this.userId) {
-      return TextCopies.find({userId: this.userId});
-    } else {
-      return this.ready();
-    }
-  });
-};
+Meteor.publish('textCopies', function() {
+  if (this.userId) {
+    return TextCopies.find({userId: this.userId}, {sort: {created: 1}});
+  } else {
+    return this.ready();
+  }
+});

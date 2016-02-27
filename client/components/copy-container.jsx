@@ -11,7 +11,8 @@ class CopyContainer extends React.Component {
   }
 
   handleChange() {
-    this.props.colorChange(this.props.copyInstance._id);
+    const copy = this.props.copyInstance;
+    this.props.colorChange(copy._id, this.refs.backgroundColor.value);
   }
 
   componentDidMount() {
@@ -21,15 +22,15 @@ class CopyContainer extends React.Component {
   render() {
     let copyId = `copyme${this.props.copyInstance._id}`;
     return (
-      <div className="row clipboard-row" style={this.state}>
+      <div className="row clipboard-row" id={this.props.copyInstance._id} name="copyRow" style={{backgroundColor: this.props.copyInstance.color}}>
         <div className="col-sm-12">
           <div className="form-group">
-            <input className="form-control" defaultValue={this.props.copyInstance.title} placeholder="Enter a title" ref="copyTitle" />
+            <input className="form-control" name="title" defaultValue={this.props.copyInstance.title} placeholder="Enter a title" ref="copyTitle" />
           </div>
         </div>
         <div className="col-sm-9">
           <div className="form-group">
-            <textarea className="form-control" rows="5" ref="copyValue" id={copyId} defaultValue={this.props.copyInstance.copyValue} placeholder="I will be copied"></textarea>
+            <textarea className="form-control" name="copyValue" rows="5" ref="copyValue" id={copyId} defaultValue={this.props.copyInstance.copyValue} placeholder="I will be copied"></textarea>
           </div>
         </div>
         <div className="col-sm-3">
@@ -37,7 +38,7 @@ class CopyContainer extends React.Component {
             <div className="col-xs-12">
               <div className="form-group">
                 <label>Change Background Color</label>
-                <select className="form-control" ref="backgroundColor" onChange={this.handleChange.bind(this)}>
+                <select className="form-control" name="color" ref="backgroundColor" onChange={this.handleChange.bind(this)} defaultValue={this.props.copyInstance.color}>
                   <option value="white">White</option>
                   <option value="lightGreen">Green</option>
                   <option value="lightBlue">Blue</option>

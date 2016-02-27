@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Header from './header.jsx';
 import {Footer} from './footer.jsx';
 import {composeWithTracker} from 'react-komposer';
@@ -6,7 +7,14 @@ import {composeWithTracker} from 'react-komposer';
 class Layout extends React.Component {
   handleSave(event) {
     event.preventDefault();
-    console.log(React.Children);
+    $('[name=copyRow]').each(function(index) {
+      let copyObject = {
+        title: $(this).find('[name=title]').val(),
+        color: $(this).find('[name=color]').val(),
+        copyValue: $(this).find('[name=copyValue]').val()
+      }
+      Meteor.call('updatePage', this.id, copyObject);
+    });
   }
 
   render() {

@@ -11,3 +11,9 @@ export const CopyButton = ({copyId}) => (
     <span className="fa fa-copy fa-2x" data-clipboard-target={copyId}></span>
   </button>
 );
+
+export const AddAnother = ({handleClick}) => (
+  <button className="btn btn-primary" onClick={handleClick}>
+    Add Another Container
+  </button>
+);
